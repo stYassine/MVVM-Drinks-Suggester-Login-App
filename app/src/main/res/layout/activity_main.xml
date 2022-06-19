@@ -16,24 +16,60 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
-        android:text="Which drink should I take?"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp" />
+        android:id="@+id/etEmail"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/etPassword"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="Password"
+        />
+
+    <Button
+        android:id="@+id/bLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Login" />
 
     <TextView
-        android:id="@+id/tvDrinkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/tvLoginResult"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text=""
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        android:layout_marginTop="100dp"
+        android:text="Not Logged In"
+        android:textSize="18sp" />
+
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:text="Which drink should I take?"-->
+<!--        android:textColor="@android:color/holo_orange_dark"-->
+<!--        android:textSize="18sp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvDrinkName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:text=""-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="italic" />-->
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -43,12 +79,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:id="@+id/bGetDrink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:text="Get Drink" />
+<!--    <Button-->
+<!--        android:id="@+id/bGetDrink"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:text="Get Drink" />-->
 
 </LinearLayout>

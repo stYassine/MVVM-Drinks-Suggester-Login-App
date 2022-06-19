@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -14,9 +15,10 @@ import com.example.mvvmapplogin.viewModels.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvDrinkName;
+    private TextView tvDrinkName, tvLoginResult;
+    private EditText etEmail, etPassword;
     private ProgressBar progressBar;
-    private Button bGetDrink;
+    private Button bGetDrink, bLogin;
 
     private MainViewModel mainViewModel;
 
@@ -25,9 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvDrinkName = (TextView) findViewById(R.id.tvDrinkName);
+//        tvDrinkName = (TextView) findViewById(R.id.tvDrinkName);
+        tvLoginResult = (TextView) findViewById(R.id.tvLoginResult);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        bGetDrink = (Button) findViewById(R.id.bGetDrink);
+//        bGetDrink = (Button) findViewById(R.id.bGetDrink);
+        bLogin = (Button) findViewById(R.id.bLogin);
 
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
@@ -40,17 +47,36 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.getmDrinksMutableData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String drink) {
-                tvDrinkName.setText(drink);
+//                tvDrinkName.setText(drink);
             }
         });
 
+        mainViewModel.getmLoginResultMutableData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                tvLoginResult.setText(s);
+            }
+        });
 
-        bGetDrink.setOnClickListener(new View.OnClickListener() {
+//        bGetDrink.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mainViewModel.suggestNewDrink();
+//            }
+//        });
+
+        /// Login
+        bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainViewModel.suggestNewDrink();
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+
+                mainViewModel.login(email, password);
             }
         });
+
+
     }
 
     /// Before MVVM
